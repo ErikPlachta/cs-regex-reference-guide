@@ -41,12 +41,14 @@ To use this reference guide, you can either **[navigate to my website](https://e
   - [Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand](#undersatnding-regex---regular-expressions-are-not-easy-to-understand)
     - [Example - Phone Number](#example---phone-number)
     - [Example - Email Address](#example---email-address)
-    - [1. Literal Characters](#1-literal-characters)
-    - [2. Meta Characters](#2-meta-characters)
-    - [3. Quantifiers](#3-quantifiers)
-    - [4. Positions](#4-positions)
-    - [4. Character Class](#4-character-class)
-    - [4. Alteration Classes](#4-alteration-classes)
+- [Syntax x Description x Notes](#syntax-x-description-x-notes)
+  - [1. Literal Characters](#1-literal-characters)
+  - [2. Meta Characters](#2-meta-characters)
+  - [3. Quantifiers](#3-quantifiers)
+  - [4. Positions](#4-positions)
+  - [5. Character Class](#5-character-class)
+  - [| **`[.]`**     |  All literal character instances of a period, `.` | Within a class, does **not** need to be escaped to be read as a literl character. |](#--------all-literal-character-instances-of-a-period---within-a-class-does-not-need-to-be-escaped-to-be-read-as-a-literl-character-)
+  - [6. Alteration Classes](#6-alteration-classes)
     - [Regex Components](#regex-components)
     - [Anchors](#anchors)
     - [Quantifiers](#quantifiers)
@@ -114,32 +116,48 @@ or a hyphen.
 Here's, we're using the [meta character](#2-meta-characters) arguement `\d` for 
 each unique digit that we're searching for seperated by a hyphen.
 
-BUT what IF the phone-number is formatted differently through-out the data?
+BUT what IF the single phone-number is formatted differently through-out the data?
 For Example, our regex expression ran on the below data would only retrun 1
-results, `123-456-7890`.
-> `(123)-456-7890, 123-456-7890, and 123 456 7890`
+results, `123-456-7890`, even though ALL of them are the same phone number.
+> `(123)-456-7890`, `123-456-7890`, `123.456.7890`, and `123 456 7890`
 
 ---
 
 **So how could we improve our regex expression?**
 
-> We just need to add a few OR arguements.
- 
-To do that in regex, we'll use **`[]`**
-[character class syntax](#character-classes), where each [literal character](#1-literal-characters)
-inside the square-brackets is considered a unqiue argument.
+Well, considering the same phone numbers 4 times again, we want to account for
+`(`,`)`, ` `, and `-`.
+> `(123)-456-7890`, `123-456-7890`, `123.456.7890`, and `123 456 7890`
 
-Considering three phone numbers again, we want to account for `(`,`)`, ` `, and `-`.
-> `(123)-456-7890, 123-456-7890, and 123 456 7890`
+**1.** Add a FEW OR operators to account for spaces vs hyphens
+    > To do this we'll use **`[]`**, the [character class syntax](#character-classes),
+    > where each [literal character](#1-literal-characters) inside the square-
+    > brackets is considered a unqiue argument.
 
-Here are the following arguments well need to add
+**2.** Add the ability to match `(` and `)` if they exist.
+    > For optional parameters, we'll use the **`?`** [quantifier](#quantifiers),
+    > which allows us to search for intances where a value does and does not exist.
+
+**What does this fully fleshed out syntactically accurate regex argument look like?**
+
+`(\(?)+(\d{3})+[-.) ]+(\s?)(\d{3})+[-. ]+(\s?)+(\d{4})`
+
+Let's break it down 👇🏼
+
 | Syntax      | Description |
 |-------------|-------------|
+| **`\(?`** | Left-parenthesis `(` if exists|
+| **`+`** | Followed by... |
+| **`\d{3}`** | A collection of 3 digits |
+| **`+`** | Followed by... |
+| **`[)-. ]`** | a right-parenthesis `)`, OR hyphen `-`, OR period `.`, OR a space` `|
+| **`+`** | Followed by... |
+| **`\s?`** | A white-space if it exists |
 | **`[- ]`** | Hyphen OR a space|
-|
+| **`+`** | Followed by... |
+| **`\d{3}`** | A collection of 3 digits |
+| **`+`** | Followed by... |
 
-
-> By changing our regex expression to this, `[(]\d\d\d[)][- ]\d\d\d[- ]\d\d\d\d`,
 
 ### Example - Email Address
 
@@ -164,7 +182,11 @@ all email addresses, again.
 
 ---
 
-### 1. Literal Characters
+# Syntax x Description x Notes
+
+The snytax of regegular expressions broken down into their respective categories.
+
+## 1. Literal Characters
 
 Any/all ASCII or unicode characters you're wanting to search for or filter out. 
 This will include sincle characters
@@ -174,11 +196,11 @@ This will include sincle characters
 | **`a-z`** | Any lower-case letters  |
 | **`A-Z`** | Any upper-case letters  |
 | **`0-9`** | Any digits |
-| Unicodes  | There's a lot. here's an index -> *[Microsoft - Insert ASCII or Unicode Latin-based symbols and characters](https://support.microsoft.com/en-gb/office/insert-ascii-or-unicode-latin-based-symbols-and-characters-d13f58d3-7bcb-44a7-a4d5-972ee12e50e0)* |
+| **`Unicode Characters`**  | There's a lot. here's an index -> *[Microsoft - Insert ASCII or Unicode Latin-based symbols and characters](https://support.microsoft.com/en-gb/office/insert-ascii-or-unicode-latin-based-symbols-and-characters-d13f58d3-7bcb-44a7-a4d5-972ee12e50e0)* |
 
 ---
 
-### 2. Meta Characters
+## 2. Meta Characters
 
 Regex operator that represent specific data-types within the ASCI or Unicode
 character sets.
@@ -193,12 +215,11 @@ character sets.
 | **`\W`**| Anything that is NOT a word-character |   |   |
 | **`\s`**| Any white-space characters. | `Space`, `Tab`, and sometimes `new-line`| **`\s\s`** -> Returns any sequent of two white-space characters. |
 | **`\S`**| Anything that is NOT white-space. | `Space`, `Tab`, and sometimes `new-line` | |
+| **`[a-z]`**| All character a-z. | When in a class, the `-` plays as an operator to reutrn a-z character argument values. See the [character classes](#character-classes) section for more details | | `[a-c]` -> return all characters between `a` and `c` |
 
 ---
 
-> New Lines  *New-line has abnormal rules I need to add here*
-
-### 3. Quantifiers
+## 3. Quantifiers
 
 ... are a meta character that modify the pervious meta characters in a regular
 expesion.
@@ -210,12 +231,12 @@ expesion.
 | **`*`**|  0 or more   | |
 | **`+`**|  1 or more   | |
 | **`?`**|  0 or 1      | **`test?t`** -> all combonations of `test` and `testt` where the second T is optional.       |
-| **`{min,max}`**|Range | **`\w{1,5}`** -> All word-character combonations with 1-5 characters followed by white-space.|
-| **`{n}`**| ?          | **`\w{5}\s`** -> All word-character combonations with 5 character followed by white-space.   |
+| **`{min,max}`**| Range of number of times former-arguement must exist to qualify as a result. | **`\w{1,5}`** -> All word-character combonations with 1-5 characters followed by white-space.|
+| **`{n}`**| Number of times the former-arguement must exist to qualify as a result. | **`\w{5}\s`** -> All word-character combonations with 5 character followed by white-space.   |
 
 ---
 
-### 4. Positions
+## 4. Positions
 
 ... are used to match the location of a litercal character within your defined 
 searach-paramters.
@@ -226,19 +247,20 @@ searach-paramters.
 | **`$`** |  The End of the line   |  |
 | **`\b`** |  A word boundry       | **All 4 letter words** -> **`\b\w{4}`** -> Looking at each word, look ALL word-character values of length 4. |
 
-### 4. Character Class
+---
+
+## 5. Character Class
 
 ... is the OR operator, based on parameters inside of square-brackets **`[ ]`**.
-> *WARNING: Within a [character class](#character-classes), a period, **`.`**,
-> does not need to be escaped, **`\.`**, to be read as a [literal character](#1-literal-characters)*
 
-| Example |       Description                                                  |
-|---------------|--------------------------------------------------------------|
-| **`l[yi]nk`** | So for all `link` OR `lynk`. |
+| Use Case Examples and Special Cirumstances |       Description |  Notes | Example |
+|---------------|------------------------------------------------|--------|---------|
+| **`l[yi]nk`** | All cases of `link` AND/OR `lynk`. |  |
+| **`[a-z]`**   | Any literal characters a-z. | Because the hyphen is in the middle, not the preface of the `[-.]`, it's interited as an [Meta Character](#2-meta-characters).  | `[a-c]` -> return all characters between `a` and `c`. `[0-5]{3}`|
+| **`[.]`**     |  All literal character instances of a period, `.` | Within a class, does **not** need to be escaped to be read as a literl character. |
+---
 
-
-
-### 4. Alteration Classes
+## 6. Alteration Classes
 
 ... are used with as an or operator to look for grouped literal characters.
 
