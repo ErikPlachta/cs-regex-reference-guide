@@ -120,3 +120,5 @@ A collection of resources I used to learn about Regex.
 - [MDN - Regular expression syntax cheatsheet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet)
 - [Regular-Exprsesions.info](https://www.regular-expressions.info/)
 - [RexEgg.com](https://www.rexegg.com/)
+- [Youtube - The Coding Train - Introduction to Regular Expressions - Programming with Text](https://www.youtube.com/watch?v=7DG3kCDx53c)
+- [Regex tutorial — A quick cheatsheet by examples](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
