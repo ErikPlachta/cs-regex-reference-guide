@@ -30,14 +30,14 @@ To use this reference guide, you can either **[navigate to my website](https://e
   - [Useage](#useage)
   - [Repo Stats](#repo-stats)
   - [Table of Contents](#table-of-contents)
-  - [Regex - Regular Expressions](#regex---regular-expressions)
-    - [What are some other ways to explain Regular Expressions?](#what-are-some-other-ways-to-explain-regular-expressions)
-    - [Regular Expressions Are ~~not~~ Easy to Understand](#regular-expressions-are-not-easy-to-understand)
-    - [Four Cateogires of Regex Expression Values](#four-cateogires-of-regex-expression-values)
-      - [1. Literal Characters](#1-literal-characters)
-      - [2. Meta characters](#2-meta-characters)
-      - [3. Quantifiers](#3-quantifiers)
-      - [4. Positions](#4-positions)
+- [Regex - Regular Expressions](#regex---regular-expressions)
+  - [What are some other ways to explain Regular Expressions?](#what-are-some-other-ways-to-explain-regular-expressions)
+  - [Regular Expressions Are ~~not~~ Easy to Understand](#regular-expressions-are-not-easy-to-understand)
+  - [Four Cateogires of Regex Expression Values](#four-cateogires-of-regex-expression-values)
+    - [1. Literal Characters](#1-literal-characters)
+    - [2. Meta characters](#2-meta-characters)
+    - [3. Quantifiers](#3-quantifiers)
+    - [4. Positions](#4-positions)
     - [Let's Look at a Basic Example - Phone Number](#lets-look-at-a-basic-example---phone-number)
     - [Let's Look at A More Complex Example - Email Address](#lets-look-at-a-more-complex-example---email-address)
     - [Regex Components](#regex-components)
@@ -58,7 +58,7 @@ To use this reference guide, you can either **[navigate to my website](https://e
 
 ---
 
-## Regex - Regular Expressions
+# Regex - Regular Expressions
 
 **A regular expression, *aka regex*, is used to simplify advanced searching/filtering
 of content based on a user-specified search patern.**
@@ -71,8 +71,9 @@ patterns in ASCII or unicode characters.**
 > email-addresses, websites, or really any type of content that folows a
 > universal pattern.
 
+---
 
-### What are some other ways to explain Regular Expressions?
+## What are some other ways to explain Regular Expressions?
 
 Great questions!
 
@@ -84,46 +85,52 @@ The [MDN team said,](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Gui
 
 ---
 
-### Regular Expressions Are ~~not~~ Easy to Understand
+## Regular Expressions Are ~~not~~ Easy to Understand
 
 At first glance, a regex pattern can be intimidating.
 > For example of searching for an email address `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/` 🤯
 
 It's much less complicated than it appears, so let's break it down! 👇🏼
 
-### Four Cateogires of Regex Expression Values
+## Four Cateogires of Regex Expression Values
 
 A regex pattern, *the search / filter you're creating*, is Broken Down 4 Categories
 
-#### 1. Literal Characters
+### 1. Literal Characters
 
 Any/all ASCII or unicode characters you're wanting to search for or filter out. 
 This will include sincle characters
 
-- **`a-z`**
-- **`A-Z`**
-- **`0-9`**
+| Syntax | Description                |
+|--------|----------------------------|
+| **`a-z`** | Any lower-case letters  |
+| **`A-Z`** | Any upper-case letters  |
+| **`0-9`** | Any digits |
+| Unicodes  | There's a lot. here's an index -> *[Microsoft - Insert ASCII or Unicode Latin-based symbols and characters](https://support.microsoft.com/en-gb/office/insert-ascii-or-unicode-latin-based-symbols-and-characters-d13f58d3-7bcb-44a7-a4d5-972ee12e50e0)* |
 
-#### 2. Meta characters
+---
+
+### 2. Meta characters
 
 Regex operator that represent specific data-types within the ASCI or Unicode
 character sets.
 
-- **`\`** -> Converts ASCI or Unicode character into meta-characters
-- **`/^`**  ->
-- **`.`**  -> Any ASCI or Unicode Character. ( *Warning: Use with caution. It's a broad grab.* )
-- **`\d`**  -> Any Digit 0-9
-- **`*`**    -> Wildcard search - Zero or More
-- **`\w`**   -> Anything that is a word-character.
-  - *`A-Z`*, *`a-z`*, **`0-9`**
-  - **`\w\w`** -> Returns any sequent of two word-characters.
-- **`\W`**   -> Anything that is NOT a word-character
-- **`\s`**   -> Any white-space characters.
-  - `Space`, `Tab`, and sometimes `new-line` ( *New-line has abnormal rules I need to add here* )
-  - **`\s\s`** -> Returns any sequent of two white-space characters
-- **`\S`**   -> Anything that is NOT white-space.
+| Syntax | Description  | Note | Example |
+|--------|--------------|------|---------|
+| **`\`** | Converts ASCI or Unicode character into meta-characters | | |
+| **`/^`**| TODO: 02/27/2022 #EP |  | |
+| **`.`** | Any ASCI or Unicode Character.| *Warning: Use with caution. It's a broad grab.* | |
+| **`\d`**| Any Digit 0-9 | | |
+| **`\w`**| Anything that is a word-character | *`A-Z`*, *`a-z`*, **`0-9`** |  **`\w\w`** -> Returns any sequent of two word-characters. |
+| **`\W`**| Anything that is NOT a word-character |   |   |
+| **`\s`**| Any white-space characters. |`Space`, `Tab`, and sometimes `new-line`| **`\s\s`** -> Returns any sequent of two white-space characters|
+| **`\S`**| Anything that is NOT white-space. | `Space`, `Tab`, and sometimes `new-line` |
 
-#### 3. Quantifiers
+---
+
+> New Lines  *New-line has abnormal rules I need to add here*
+
+### 3. Quantifiers
 
 ... are a meta character that modify the pervious meta characters in a regular
 expesion.
@@ -138,15 +145,9 @@ expesion.
 | **`{min,max}`**|Range |
 | **`{n}`**| ? |
 
+---
 
-- **`*`**  -> 0 or more
-- **`+`**  -> 1 or more
-- **`?`**  -> 0 or 1
-- **`{min,max}`**  -> M
-- **`{n}`**  ->
-
-
-#### 4. Positions
+### 4. Positions
 
 ... are
 
