@@ -35,11 +35,12 @@ To use this reference guide, you can either **[navigate to my website](https://e
   - [Regular Expressions Are ~~not~~ Easy to Understand](#regular-expressions-are-not-easy-to-understand)
   - [Four Cateogires of Regex Expression Values](#four-cateogires-of-regex-expression-values)
     - [1. Literal Characters](#1-literal-characters)
-    - [2. Meta characters](#2-meta-characters)
+    - [2. Meta Characters](#2-meta-characters)
     - [3. Quantifiers](#3-quantifiers)
     - [4. Positions](#4-positions)
-    - [Let's Look at a Basic Example - Phone Number](#lets-look-at-a-basic-example---phone-number)
-    - [Let's Look at A More Complex Example - Email Address](#lets-look-at-a-more-complex-example---email-address)
+  - [Examples with Explinations](#examples-with-explinations)
+    - [Example - Phone Number](#example---phone-number)
+    - [Example - Email Address](#example---email-address)
     - [Regex Components](#regex-components)
     - [Anchors](#anchors)
     - [Quantifiers](#quantifiers)
@@ -110,16 +111,16 @@ This will include sincle characters
 
 ---
 
-### 2. Meta characters
+### 2. Meta Characters
 
 Regex operator that represent specific data-types within the ASCI or Unicode
 character sets.
 
 | Syntax | Description  | Note | Example |
 |--------|--------------|------|---------|
-| **`\`** | Converts ASCI or Unicode character into meta-characters | | |
-| **`/^`**| TODO: 02/27/2022 #EP |  | |
-| **`.`** | Any ASCI or Unicode Character.| *Warning: Use with caution. It's a broad grab.* | |
+| **`\`** | Converts ASCI or Unicode character **into meta-characters** | *WARNING: If you don't use this it will be considered a literal-character!* | |
+| **`/^`**| Any new line |
+| **`.`** | Any ASCI or Unicode Character.| *WARNING: Use with caution. It's a broad grab.* | |
 | **`\d`**| Any Digit 0-9 | | |
 | **`\w`**| Anything that is a word-character | *`A-Z`*, *`a-z`*, **`0-9`** |  **`\w\w`** -> Returns any sequent of two word-characters. |
 | **`\W`**| Anything that is NOT a word-character |   |   |
@@ -137,62 +138,63 @@ expesion.
 > Based on your regex search paramters, how many of times do you want it to 
 > match in a row?
 
-| Syntax | Description  |
-|--------|--------------|
-| **`*`**|  0 or more   |
-| **`+`**|  1 or more   |
-| **`?`**|  0 or 1      |
-| **`{min,max}`**|Range |
-| **`{n}`**| ? |
+| Syntax | Description  |   Example   |
+|--------|--------------|-------------|
+| **`*`**|  0 or more   | |
+| **`+`**|  1 or more   | |
+| **`?`**|  0 or 1      | **`test?t`** -> all combonations of `test` and `testt` where the second T is optional        |
+| **`{min,max}`**|Range | **`\w{1,5}`** -> All word-character combonations with 1-5 characters followed by white-space |
+| **`{n}`**| ?          | **`\w{5}\s`** -> All word-character combonations with 5 character followed by white-space    |
 
 ---
 
 ### 4. Positions
 
-... are
+... are used to match the location of a litercal character within your defined 
+searach-paramters.
+
+| Syntax  | Description  |   Example   |
+|---------|--------------|-------------|
+| **`^`** |  The beganning of line | **Lines with only 1 word:** -> **`^\w+$** -> Any new line followed by a word-character followed by end of line. | 
+| **`$`** |  The End of the line   |  |
+| **`\b`** |  A word boundry       | **All 4 letter words** -> **`\b\w{4}`** -> Looking at each word, look ALL word-character values of length 4. |
 
 ---
 
-### Let's Look at a Basic Example - Phone Number
+## Examples with Explinations
 
-`\d\d\d-\d\d\d-\d\d\d\d`
+Now that we've covered all of the details, let's look at some basic examples to
+tie it all togther.
+
+### Example - Phone Number
+
+Without the area-code, phone numbers are generally 9-digits.
+- We can look for 9 digits like this `\d\d\d-\d\d\d-\d\d\d\d`
+  - Here, we're expliciting writing out each digit [Meta Character](#2-meta-characters), **`\d`**.
+- We can also look for 9 digits like this `\d{3}-\d{3}-\d{4}`
+  - Here, we're defining the digit [meta character](#2-meta-characters) **`\d`**, and then stating we want a quantity of three with the **`{n}`** [Quantifier](#quantifiers).
 
 
-### Let's Look at A More Complex Example - Email Address
+### Example - Email Address
 
 Now that we've covered the basics, let's look at the regex search pattern for
 all email addresses, again.
 > *The goal here is to understand the concept of what's possible!*
 
-`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
-
 **Do you see a pattern in this regex search pattern?**
 
-Let's break it apart into smaller chunks based on the high-level patterns we see.
-I'll explain what is happening for context.
-> Don't forget this is just to understand the concept!
+`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`
 
-**Regex and Email Addresses: `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`**
+> Let's break it apart into smaller chunks based on the high-level patterns we see.
 
-1. **`/^`** are two [meta characters](#2-meta-characters) strating the regular expression.
-2. **`(`** is another [meta character](#2-meta-characters) defining the start of a regex-search-pattern.
-3. **`[a-z0-9_\.-]`** is a our first mix of [literal](#1-literal-characters) and [meta](#2-meta-characters) characters!
-    - `[]` are the [meta character](#2-meta-characters) that encapsulate the search/filter paramters.
-    - `a-z0-9_\.-` are the [literal](#1-literal-characters), which is telling the regex-expression to search for ALL *alpha-number* *characters* including the asci-characters **underscore**, **period**, and **hyphen** too.
-      > What about the backslash **`\`**?
-      >> The [meta character](#2-meta-characters) **`\`** is escapging the [meta character](#2-meta-characters) operator **`.`**, converting it to a [literal character](#1-literal-characters).
-4. **`+)`** are two more [meta character](#2-meta-characters) operators.  
-    - **`+`** is indicating to add the next [literal character(s)](#1-literal-characters) to the former as part of the filter.
-    - **`)`** is ending a regex-search-pattern block.
-5. **`@`** is a [literal character](#1-literal-characters) that is 
-6. **`([\da-z\.-]+)`** mirrors what is happening in #3 above.
-7. **`\.`**
-8. **`([a-z\.]{2,6})`**
-9. *`$/`*
-
-
-
-##
+| Symbol | Description |
+|--------|-------------|
+|**`(`** | Encapsulating a sub-expression |
+|**`[a-z0-9_\.-]`** | Any alpha-numeric characters along with `_`, `.`, and `-`. Results must |
+|**`+)`** | Ending sub-exepression, and reuqiring it be followed by the next argument. |
+|**`@`**    | MUST include the `@` character. |
+|**`([\da-z\.-]+)`** | Any digit or alpha-number character, followed by a `.` or `-`. |
+|**`([a-z\.]{2,6})`** | Look for alpha-characters of any combonation between 2-6 characters in length |
 
 ---
 
