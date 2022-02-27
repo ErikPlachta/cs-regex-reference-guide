@@ -33,10 +33,12 @@ To use this reference guide, you can either **[navigate to my website](https://e
   - [Regex - Regular Expressions](#regex---regular-expressions)
     - [What are some other ways to explain Regular Expressions?](#what-are-some-other-ways-to-explain-regular-expressions)
     - [Regular Expressions Are ~~not~~ Easy to Understand](#regular-expressions-are-not-easy-to-understand)
-    - [A regex pattern, *the search / filter you're creating*, is broken down into two categories](#a-regex-pattern-the-search--filter-youre-creating-is-broken-down-into-two-categories)
+    - [Four Cateogires of Regex Expression Values](#four-cateogires-of-regex-expression-values)
       - [1. Literal Characters](#1-literal-characters)
       - [2. Meta characters](#2-meta-characters)
-    - [Let's Look at a Basic Example](#lets-look-at-a-basic-example)
+      - [3. Quantifiers](#3-quantifiers)
+      - [4. Positions](#4-positions)
+    - [Let's Look at a Basic Example - Phone Number](#lets-look-at-a-basic-example---phone-number)
     - [Let's Look at A More Complex Example - Email Address](#lets-look-at-a-more-complex-example---email-address)
     - [Regex Components](#regex-components)
     - [Anchors](#anchors)
@@ -89,21 +91,71 @@ At first glance, a regex pattern can be intimidating.
 
 It's much less complicated than it appears, so let's break it down! 👇🏼
 
-### A regex pattern, *the search / filter you're creating*, is broken down into two categories
+### Four Cateogires of Regex Expression Values
+
+A regex pattern, *the search / filter you're creating*, is Broken Down 4 Categories
 
 #### 1. Literal Characters
 
-The specific ASCII or unicode characters you're wanting to search for or filter out.
+Any/all ASCII or unicode characters you're wanting to search for or filter out. 
+This will include sincle characters
+
+- **`a-z`**
+- **`A-Z`**
+- **`0-9`**
 
 #### 2. Meta characters
 
-The operator(s) telling defining the behavior of the search / filter
+Regex operator that represent specific data-types within the ASCI or Unicode
+character sets.
 
-> TODO:: Add operators here
+- **`\`** -> Converts ASCI or Unicode character into meta-characters
+- **`/^`**  ->
+- **`.`**  -> Any ASCI or Unicode Character. ( *Warning: Use with caution. It's a broad grab.* )
+- **`\d`**  -> Any Digit 0-9
+- **`*`**    -> Wildcard search - Zero or More
+- **`\w`**   -> Anything that is a word-character.
+  - *`A-Z`*, *`a-z`*, **`0-9`**
+  - **`\w\w`** -> Returns any sequent of two word-characters.
+- **`\W`**   -> Anything that is NOT a word-character
+- **`\s`**   -> Any white-space characters.
+  - `Space`, `Tab`, and sometimes `new-line` ( *New-line has abnormal rules I need to add here* )
+  - **`\s\s`** -> Returns any sequent of two white-space characters
+- **`\S`**   -> Anything that is NOT white-space.
 
-### Let's Look at a Basic Example
+#### 3. Quantifiers
 
-Here
+... are a meta character that modify the pervious meta characters in a regular
+expesion.
+> Based on your regex search paramters, how many of times do you want it to 
+> match in a row?
+
+| Syntax | Description  |
+|--------|--------------|
+| **`*`**|  0 or more   |
+| **`+`**|  1 or more   |
+| **`?`**|  0 or 1      |
+| **`{min,max}`**|Range |
+| **`{n}`**| ? |
+
+
+- **`*`**  -> 0 or more
+- **`+`**  -> 1 or more
+- **`?`**  -> 0 or 1
+- **`{min,max}`**  -> M
+- **`{n}`**  ->
+
+
+#### 4. Positions
+
+... are
+
+---
+
+### Let's Look at a Basic Example - Phone Number
+
+`\d\d\d-\d\d\d-\d\d\d\d`
+
 
 ### Let's Look at A More Complex Example - Email Address
 
@@ -137,7 +189,9 @@ I'll explain what is happening for context.
 8. **`([a-z\.]{2,6})`**
 9. *`$/`*
 
-🧠 Now that you see what's possible, 
+
+
+##
 
 ---
 
