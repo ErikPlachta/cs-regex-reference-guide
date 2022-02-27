@@ -16,12 +16,18 @@ To use this reference guide, you can either **[navigate to my website](https://e
 
 ---
 
+---
+
 ## Repo Stats
 
 [![GitHub license](https://img.shields.io/github/license/ErikPlachta/cs-regex-reference-guide)](https://github.com/ErikPlachta/cs-regex-reference-guide) [![GitHub Number of Languages](https://img.shields.io/github/languages/count/ErikPlachta/cs-regex-reference-guide)](https://github.com/ErikPlachta/cs-regex-reference-guide)
 [![GitHub top Language](https://img.shields.io/github/languages/top/ErikPlachta/cs-regex-reference-guide)](https://github.com/ErikPlachta/cs-regex-reference-guide)
 [![GitHub issues](https://img.shields.io/github/issues/ErikPlachta/cs-regex-reference-guide)](https://github.com/ErikPlachta/cs-regex-reference-guide/issues)
 ![GitHub last commit](https://img.shields.io/github/last-commit/erikplachta/cs-regex-reference-guide)
+
+---
+
+---
 
 ## Table of Contents
 
@@ -32,15 +38,15 @@ To use this reference guide, you can either **[navigate to my website](https://e
   - [Table of Contents](#table-of-contents)
 - [Regex - Regular Expressions](#regex---regular-expressions)
   - [What are some other ways to explain Regular Expressions?](#what-are-some-other-ways-to-explain-regular-expressions)
-  - [Regular Expressions Are ~~not~~ Easy to Understand](#regular-expressions-are-not-easy-to-understand)
-  - [Four Cateogires of Regex Expression Values](#four-cateogires-of-regex-expression-values)
+  - [Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand](#undersatnding-regex---regular-expressions-are-not-easy-to-understand)
+    - [Example - Phone Number](#example---phone-number)
+    - [Example - Email Address](#example---email-address)
     - [1. Literal Characters](#1-literal-characters)
     - [2. Meta Characters](#2-meta-characters)
     - [3. Quantifiers](#3-quantifiers)
     - [4. Positions](#4-positions)
-  - [Examples with Explinations](#examples-with-explinations)
-    - [Example - Phone Number](#example---phone-number)
-    - [Example - Email Address](#example---email-address)
+    - [4. Character Class](#4-character-class)
+    - [4. Alteration Classes](#4-alteration-classes)
     - [Regex Components](#regex-components)
     - [Anchors](#anchors)
     - [Quantifiers](#quantifiers)
@@ -59,6 +65,8 @@ To use this reference guide, you can either **[navigate to my website](https://e
 
 ---
 
+---
+
 # Regex - Regular Expressions
 
 **A regular expression, *aka regex*, is used to simplify advanced searching/filtering
@@ -74,6 +82,8 @@ patterns in ASCII or unicode characters.**
 
 ---
 
+---
+
 ## What are some other ways to explain Regular Expressions?
 
 Great questions!
@@ -86,16 +96,73 @@ The [MDN team said,](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Gui
 
 ---
 
-## Regular Expressions Are ~~not~~ Easy to Understand
+---
 
-At first glance, a regex pattern can be intimidating.
-> For example of searching for an email address `/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/` 🤯
+## Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand
 
-It's much less complicated than it appears, so let's break it down! 👇🏼
+To understand a regex pattern, *the search / filter you're creating*, you'll need
+to learn some syntax. But first, let's start with some examples.
 
-## Four Cateogires of Regex Expression Values
+### Example - Phone Number
 
-A regex pattern, *the search / filter you're creating*, is Broken Down 4 Categories
+Without the area-code, phone numbers are generally 9-digits separated by a space
+or a hyphen.
+
+---
+
+**We can look for 9 digits like this `\d\d\d-\d\d\d-\d\d\d\d`**
+Here's, we're using the [meta character](#2-meta-characters) arguement `\d` for 
+each unique digit that we're searching for seperated by a hyphen.
+
+BUT what IF the phone-number is formatted differently through-out the data?
+For Example, our regex expression ran on the below data would only retrun 1
+results, `123-456-7890`.
+> `(123)-456-7890, 123-456-7890, and 123 456 7890`
+
+---
+
+**So how could we improve our regex expression?**
+
+> We just need to add a few OR arguements.
+ 
+To do that in regex, we'll use **`[]`**
+[character class syntax](#character-classes), where each [literal character](#1-literal-characters)
+inside the square-brackets is considered a unqiue argument.
+
+Considering three phone numbers again, we want to account for `(`,`)`, ` `, and `-`.
+> `(123)-456-7890, 123-456-7890, and 123 456 7890`
+
+Here are the following arguments well need to add
+| Syntax      | Description |
+|-------------|-------------|
+| **`[- ]`** | Hyphen OR a space|
+|
+
+
+> By changing our regex expression to this, `[(]\d\d\d[)][- ]\d\d\d[- ]\d\d\d\d`,
+
+### Example - Email Address
+
+Now that we've covered the basics, let's look at the regex search pattern for
+all email addresses, again.
+> *The goal here is to understand the concept of what's possible!*
+
+**Do you see a pattern in this regex search pattern?**
+
+`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`
+
+> Let's break it apart into smaller chunks based on the high-level patterns we see.
+
+| Symbol | Description |
+|--------|-------------|
+|**`(`** | Encapsulating a sub-expression |
+|**`[a-z0-9_\.-]`** | Any alpha-numeric characters along with `_`, `.`, and `-`. Results must |
+|**`+)`** | Ending sub-exepression, and reuqiring it be followed by the next argument. |
+|**`@`**    | MUST include the `@` character. |
+|**`([\da-z\.-]+)`** | Any digit or alpha-number character, followed by a `.` or `-`. |
+|**`([a-z\.]{2,6})`** | Look for alpha-characters of any combonation between 2-6 characters in length |
+
+---
 
 ### 1. Literal Characters
 
@@ -119,13 +186,13 @@ character sets.
 | Syntax | Description  | Note | Example |
 |--------|--------------|------|---------|
 | **`\`** | Converts ASCI or Unicode character **into meta-characters** | *WARNING: If you don't use this it will be considered a literal-character!* | |
-| **`/^`**| Any new line |
-| **`.`** | Any ASCI or Unicode Character.| *WARNING: Use with caution. It's a broad grab.* | |
+| **`/^`**| Any new line | | |
+| **`.`** | Any ASCI or Unicode Character.| *WARNING: Within a [character class](#character-classes), a `.` does not need to be escaped to be read as a [literal character](#1-literal-characters)* | |
 | **`\d`**| Any Digit 0-9 | | |
 | **`\w`**| Anything that is a word-character | *`A-Z`*, *`a-z`*, **`0-9`** |  **`\w\w`** -> Returns any sequent of two word-characters. |
 | **`\W`**| Anything that is NOT a word-character |   |   |
-| **`\s`**| Any white-space characters. |`Space`, `Tab`, and sometimes `new-line`| **`\s\s`** -> Returns any sequent of two white-space characters|
-| **`\S`**| Anything that is NOT white-space. | `Space`, `Tab`, and sometimes `new-line` |
+| **`\s`**| Any white-space characters. | `Space`, `Tab`, and sometimes `new-line`| **`\s\s`** -> Returns any sequent of two white-space characters. |
+| **`\S`**| Anything that is NOT white-space. | `Space`, `Tab`, and sometimes `new-line` | |
 
 ---
 
@@ -135,16 +202,16 @@ character sets.
 
 ... are a meta character that modify the pervious meta characters in a regular
 expesion.
-> Based on your regex search paramters, how many of times do you want it to 
+> Based on your regex search paramters, how many of times do you want it to
 > match in a row?
 
 | Syntax | Description  |   Example   |
 |--------|--------------|-------------|
 | **`*`**|  0 or more   | |
 | **`+`**|  1 or more   | |
-| **`?`**|  0 or 1      | **`test?t`** -> all combonations of `test` and `testt` where the second T is optional        |
-| **`{min,max}`**|Range | **`\w{1,5}`** -> All word-character combonations with 1-5 characters followed by white-space |
-| **`{n}`**| ?          | **`\w{5}\s`** -> All word-character combonations with 5 character followed by white-space    |
+| **`?`**|  0 or 1      | **`test?t`** -> all combonations of `test` and `testt` where the second T is optional.       |
+| **`{min,max}`**|Range | **`\w{1,5}`** -> All word-character combonations with 1-5 characters followed by white-space.|
+| **`{n}`**| ?          | **`\w{5}\s`** -> All word-character combonations with 5 character followed by white-space.   |
 
 ---
 
@@ -155,46 +222,25 @@ searach-paramters.
 
 | Syntax  | Description  |   Example   |
 |---------|--------------|-------------|
-| **`^`** |  The beganning of line | **Lines with only 1 word:** -> **`^\w+$** -> Any new line followed by a word-character followed by end of line. | 
+| **`^`** |  The beganning of line | **Lines with only 1 word:** -> **`^\w+$** -> Any new line followed by a word-character followed by end of line. |
 | **`$`** |  The End of the line   |  |
 | **`\b`** |  A word boundry       | **All 4 letter words** -> **`\b\w{4}`** -> Looking at each word, look ALL word-character values of length 4. |
 
----
+### 4. Character Class
 
-## Examples with Explinations
+... is the OR operator, based on parameters inside of square-brackets **`[ ]`**.
+> *WARNING: Within a [character class](#character-classes), a period, **`.`**,
+> does not need to be escaped, **`\.`**, to be read as a [literal character](#1-literal-characters)*
 
-Now that we've covered all of the details, let's look at some basic examples to
-tie it all togther.
-
-### Example - Phone Number
-
-Without the area-code, phone numbers are generally 9-digits.
-- We can look for 9 digits like this `\d\d\d-\d\d\d-\d\d\d\d`
-  - Here, we're expliciting writing out each digit [Meta Character](#2-meta-characters), **`\d`**.
-- We can also look for 9 digits like this `\d{3}-\d{3}-\d{4}`
-  - Here, we're defining the digit [meta character](#2-meta-characters) **`\d`**, and then stating we want a quantity of three with the **`{n}`** [Quantifier](#quantifiers).
+| Example |       Description                                                  |
+|---------------|--------------------------------------------------------------|
+| **`l[yi]nk`** | So for all `link` OR `lynk`. |
 
 
-### Example - Email Address
 
-Now that we've covered the basics, let's look at the regex search pattern for
-all email addresses, again.
-> *The goal here is to understand the concept of what's possible!*
+### 4. Alteration Classes
 
-**Do you see a pattern in this regex search pattern?**
-
-`([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`
-
-> Let's break it apart into smaller chunks based on the high-level patterns we see.
-
-| Symbol | Description |
-|--------|-------------|
-|**`(`** | Encapsulating a sub-expression |
-|**`[a-z0-9_\.-]`** | Any alpha-numeric characters along with `_`, `.`, and `-`. Results must |
-|**`+)`** | Ending sub-exepression, and reuqiring it be followed by the next argument. |
-|**`@`**    | MUST include the `@` character. |
-|**`([\da-z\.-]+)`** | Any digit or alpha-number character, followed by a `.` or `-`. |
-|**`([a-z\.]{2,6})`** | Look for alpha-characters of any combonation between 2-6 characters in length |
+... are used with as an or operator to look for grouped literal characters.
 
 ---
 
