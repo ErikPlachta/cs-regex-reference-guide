@@ -1,17 +1,33 @@
 # CS Regex Reference Guide
 
-A general reference guide on how to understand and use regex.
+Thanks for checking out my Regex, (*Regular Expression*), reference guide. 
 
-> To view this content, you can [navigate to a published website](https://erikplachta.github.io/cs-regex-reference-guide/), or you can [scroll down for a less interactive version of the content](#index).
+## Summary
+
+This is a general reference guide on how to understand and use regex.
+> To use this reference guide, you can either **[navigate to my website](https://erikplachta.github.io/cs-regex-reference-guide/)**, or scroll down for for the markdown version.
 
 ---
 
-## Index
+## Table of Contents
 
 - [CS Regex Reference Guide](#cs-regex-reference-guide)
-  - [Index](#index)
+  - [Summary](#summary)
+  - [Table of Contents](#table-of-contents)
   - [Repo Stats](#repo-stats)
   - [Regex - Regular Expressions](#regex---regular-expressions)
+    - [Regex Components](#regex-components)
+    - [Anchors](#anchors)
+    - [Quantifiers](#quantifiers)
+    - [OR Operator](#or-operator)
+    - [Character Classes](#character-classes)
+    - [Flags](#flags)
+    - [Grouping and Capturing](#grouping-and-capturing)
+    - [Bracket Expressions](#bracket-expressions)
+    - [Greedy and Lazy Match](#greedy-and-lazy-match)
+    - [Boundaries](#boundaries)
+    - [Back-references](#back-references)
+    - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
   - [Author](#author)
   - [Contact Me](#contact-me)
 
@@ -29,7 +45,44 @@ A general reference guide on how to understand and use regex.
 
 ## Regex - Regular Expressions
 
----
+
+### Regex Components
+
+
+### Anchors
+
+
+### Quantifiers
+
+
+### OR Operator
+
+
+### Character Classes
+
+
+### Flags
+
+
+### Grouping and Capturing
+
+
+### Bracket Expressions
+
+
+### Greedy and Lazy Match
+
+
+### Boundaries
+
+
+### Back-references
+
+
+### Look-ahead and Look-behind
+
+
+
 
 <!--
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/erikplachta/cs-regex-reference-guide)
