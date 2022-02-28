@@ -41,12 +41,11 @@ The content on this Gist was created on **[this GitHub Repo](https://github.com/
     - [1. Regex Components](#1-regex-components)
       - [1.1 Literal Characters](#11-literal-characters)
       - [1.2 Meta Characters](#12-meta-characters)
-    - [2. Anchors](#2-anchors)
+    - [2. Anchors / Positions](#2-anchors--positions)
     - [3. Quantifiers](#3-quantifiers)
     - [4. OR Operator](#4-or-operator)
       - [4.1 Character Classes / Bracket Expressions](#41-character-classes--bracket-expressions)
       - [4.2 Alteration Classes / Grouping and Capturing](#42-alteration-classes--grouping-and-capturing)
-      - [4. Positions](#4-positions)
     - [Boundaries](#boundaries)
     - [Flags](#flags)
     - [Grouping and Capturing](#grouping-and-capturing)
@@ -220,7 +219,10 @@ character sets.
 
 ---
 
-### 2. Anchors
+### 2. Anchors / Positions
+
+... are used to match the location of a litercal character within your defined
+searach-paramters.
 
 | Syntax  | Description  |   Example   |
 |---------|--------------|-------------|
@@ -251,7 +253,6 @@ expesion.
 
 ---
 
-
 ### 4. OR Operator
 
 How to use OR Arugments witin a regex statement.
@@ -280,15 +281,9 @@ bar `( arg1 | arg2 )`.
 |--------|-------------|-------|---------|
 | **`(arg1\|arg2)`** | Return all instances where `arg1` or `arg2` exist. | This is how you search for very specific groups of literal characters. | `/[\w.]+@\w+\.+(com\|net\|edu)/` -> Returns all email address that end with .net, .com, or.edu |
 
-#### 4. Positions
+---
 
-... are used to match the location of a litercal character within your defined
-searach-paramters.
-
-| Syntax  | Description  |   Example   |
-|---------|--------------|-------------|
-| **`^`** |  The beganning of line | **Lines with only 1 word:** -> **`^\w+$** -> Any new line followed by a word-character followed by end of line. |
-| **`$`** |  The End of the line   |  |
+---
 
 ### Boundaries
 
