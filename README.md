@@ -313,6 +313,13 @@ of your regex expression. `/regex-pattern/flag`
 
 ### 8. Back-references
 
+... are used to sycronize pattern-group result paramters within a regex expression
+based on the pattern group you specify.
+
+| Syntax  | Description  |   Example   |
+|---------|--------------|-------------|
+| **`\n`** | References `n` pattern group for what parameters to look for. | **`(['"])(.*?)\1`** ran on the content \``Testing: "my regex expression..."`\` -> returns `"my regex expression..."`.
+
 ---
 
 ---
@@ -352,3 +359,4 @@ A collection of resources I used to learn about Regex.
 - [Youtube - The Coding Train - Introduction to Regular Expressions - Programming with Text](https://www.youtube.com/watch?v=7DG3kCDx53c)
 - [Regex tutorial — A quick cheatsheet by examples](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 - [zone.ni.com - Regular Expressions Compontents](https://zone.ni.com/reference/en-XX/help/371714F-01/nirghelp/regular_expressions_components/)
+- [javascript.info - Backreferences in pattern](https://javascript.info/regexp-backreferences)
