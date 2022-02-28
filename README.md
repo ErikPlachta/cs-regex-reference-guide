@@ -1,11 +1,12 @@
 # CS Regex Reference Guide for JavaScript
 
-Check out this Gist if you're intersted in learning more about Regex, aka Regular Expressions. 
-> It's not a complete guide, but I did cover the basics to help you get started. I've also included my references and contact information at the bottom if you want to learn more.
+Check out this Gist if you're intersted in learning more about Regex, aka
+Regular Expressions.
+> It's not a complete guide, but I did cover the basics to help you get started.
+> I've also included my references and contact information at the bottom if you
+>  want to learn more.
 
-If you're looking for a resource to make it easy to lean regex, check out this 
-website https://regexr.com/.
-> It allows you to create regex 
+---
 
 ## Summary
 
@@ -196,6 +197,11 @@ Let's break it apart into smaller chunks based on the high-level patterns we see
 ## The Snytax
 
 ---
+
+*Note: If you're looking for a resource to make it easy to lean regex while following
+along with this guide, check out this  website https://regexr.com/.*
+> It allows you to create regex search patterns and get live-feedback.
+
 
 ### **1. Regex Components**
 
