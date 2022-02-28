@@ -3,14 +3,19 @@
 Check out this Gist if you're intersted in learning more about Regex, aka Regular Expressions. 
 > It's not a complete guide, but I did cover the basics to help you get started. I've also included my references and contact information at the bottom if you want to learn more.
 
+If you're looking for a resource to make it easy to lean regex, check out this 
+website https://regexr.com/.
+> It allows you to create regex 
+
 ## Summary
 
-This is a general reference guide on how to understand and use some basic Regex
-Expressions. I've broken down specific functions below with basic examples and
-real-life scenarios where the associted regex expression would be useful.
+This is a general reference guide on how to understand and use some basic regular
+expressions. I've broken down specific functions below with simple examples to
+help you learn the concepts quickly.
 
 ---
 
+**Publish Notes**
 The content on this Gist was created on **[this GitHub Repo](https://github.com/ErikPlachta/cs-regex-reference-guide/)**, published to this **[GitHub Website](https://erikplachta.github.io/cs-regex-reference-guide/)**, and published on [this GitHub Gist](https://gist.github.com/ErikPlachta/250107ea2e00086af9c1d29082c502b1/).
 
 ---
