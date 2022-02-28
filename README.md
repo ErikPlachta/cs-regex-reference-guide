@@ -326,6 +326,11 @@ based on the pattern group you specify.
 
 ### 9. Look-ahead and Look-behind
 
+| Syntax  | Description  |
+|---------|--------------|
+| **`(?=arg)`**	  | Lookahead returns what's immediately after `arg` |
+| **`(?<=arg)`**	| Lookbehind returns what's immediately before `arg` |
+
 ---
 
 ---
@@ -360,3 +365,4 @@ A collection of resources I used to learn about Regex.
 - [Regex tutorial — A quick cheatsheet by examples](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 - [zone.ni.com - Regular Expressions Compontents](https://zone.ni.com/reference/en-XX/help/371714F-01/nirghelp/regular_expressions_components/)
 - [javascript.info - Backreferences in pattern](https://javascript.info/regexp-backreferences)
+- [rexegg.com - Mastering Lookahead and Lookbehind](https://www.rexegg.com/regex-lookarounds.html)
