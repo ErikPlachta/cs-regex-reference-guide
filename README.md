@@ -10,10 +10,7 @@ real-life scenarios where the associted regex expression would be useful.
 
 ---
 
-## Useage
-
-- To check out the Gist I've created, **[[Check out this link]]**.
-- To use this reference guide, you can either **[navigate to my website](https://erikplachta.github.io/cs-regex-reference-guide/)**, or scroll down for for the markdown version.
+The content on this Gist was created on **[this GitHub Repo](https://github.com/ErikPlachta/cs-regex-reference-guide/)**, published to this **[GitHub Website](https://erikplachta.github.io/cs-regex-reference-guide/)**, and published on [this GitHub Gist](https://gist.github.com/ErikPlachta/250107ea2e00086af9c1d29082c502b1/).
 
 ---
 
@@ -34,7 +31,6 @@ real-life scenarios where the associted regex expression would be useful.
 
 - [CS Regex Reference Guide for JavaScript](#cs-regex-reference-guide-for-javascript)
   - [Summary](#summary)
-  - [Useage](#useage)
   - [Repo Stats](#repo-stats)
   - [Table of Contents](#table-of-contents)
   - [Regex - Regular Expressions](#regex---regular-expressions)
