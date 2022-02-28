@@ -107,12 +107,12 @@ to learn some syntax. But first, let's start with some examples.
 
 ### **Example - Phone Number**
 
-Without the area-code, phone numbers are generally 9-digits separated by a space
+Without the area-code, phone numbers are generally 10-digits separated by a space
 or a hyphen.
 
 ---
 
-**We can look for 9 digits like this `/\d\d\d-\d\d\d-\d\d\d\d/`**
+**We can look for 10 digits like this `/\d\d\d-\d\d\d-\d\d\d\d/`**
 Here's, we're using the [meta character](#2-meta-characters) arguement `\d` for 
 each unique digit that we're searching for seperated by a hyphen.
 
