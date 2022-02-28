@@ -42,16 +42,14 @@ The content on this Gist was created on **[this GitHub Repo](https://github.com/
       - [1.1 Literal Characters](#11-literal-characters)
       - [1.2 Meta Characters](#12-meta-characters)
     - [2. Anchors / Positions](#2-anchors--positions)
-    - [3. Quantifiers](#3-quantifiers)
+    - [3. Quantifiers -  Greedy and Lazy Match](#3-quantifiers----greedy-and-lazy-match)
     - [4. OR Operator](#4-or-operator)
       - [4.1 Character Classes / Bracket Expressions](#41-character-classes--bracket-expressions)
       - [4.2 Alteration Classes / Grouping and Capturing](#42-alteration-classes--grouping-and-capturing)
-    - [Boundaries](#boundaries)
-    - [Flags](#flags)
-    - [Grouping and Capturing](#grouping-and-capturing)
-    - [Greedy and Lazy Match](#greedy-and-lazy-match)
-    - [Back-references](#back-references)
-    - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
+    - [5. Boundaries](#5-boundaries)
+    - [6. Flags](#6-flags)
+    - [8. Back-references](#8-back-references)
+    - [9. Look-ahead and Look-behind](#9-look-ahead-and-look-behind)
   - [Author](#author)
   - [Contact Me](#contact-me)
   - [Resources and References](#resources-and-references)
@@ -233,7 +231,7 @@ searach-paramters.
 
 ---
 
-### 3. Quantifiers
+### 3. Quantifiers -  Greedy and Lazy Match
 
 ... are a meta character that modify the pervious meta characters in a regular
 expesion.
@@ -242,10 +240,9 @@ expesion.
 
 | Syntax | Description  |   Example   |
 |--------|--------------|-------------|
-| **`*`**|  0 or more   | |
-| **`+`**|  1 or more   | |
-| **`?`**|  0 or 1      | **`/test?t/`** -> all combonations of `test` and `testt` where the second T is optional.       |
-
+| **`*`**|  0 or more   | **`/\d*/`** -> returns all digits, period. |
+| **`?`**|  0 or 1      | **`/test?t/`** -> all combonations of `test` and `testt` where the second T is optional. |
+| **`+`**|  1 or more   | **`/\d+/`** -> returns all digits, of length 1 or more. | |
 | **`{min,max}`**| Range of number of times former-arguement must exist to qualify as a result. | **`\w{1,5}`** -> All word-character combonations with 1-5 characters followed by white-space.|
 | **`{n}`**| Number of times the former-arguement must exist to qualify as a result. | **`\w{5}\s`** -> All word-character combonations with 5 character followed by white-space.   |
 
@@ -285,7 +282,7 @@ bar `( arg1 | arg2 )`.
 
 ---
 
-### Boundaries
+### 5. Boundaries
 
 | Syntax  | Description  |   Example   |
 |---------|--------------|-------------|
@@ -295,7 +292,7 @@ bar `( arg1 | arg2 )`.
 
 ---
 
-### Flags
+### 6. Flags
 
 ... are used to classify speciic search-case scenarios to you regex expression.
 They can be combined or used individually as needed, and are added to the end
@@ -310,13 +307,19 @@ of your regex expression. `/regex-pattern/flag`
 | **`u`** | Enable unicode support | |
 | **`y`** | Sticky mode allows you to search exact position within content | |
 
-### Grouping and Capturing
+---
 
-### Greedy and Lazy Match
+---
 
-### Back-references
+### 8. Back-references
 
-### Look-ahead and Look-behind
+---
+
+---
+
+### 9. Look-ahead and Look-behind
+
+---
 
 ---
 
@@ -348,3 +351,4 @@ A collection of resources I used to learn about Regex.
 - [RexEgg.com](https://www.rexegg.com/)
 - [Youtube - The Coding Train - Introduction to Regular Expressions - Programming with Text](https://www.youtube.com/watch?v=7DG3kCDx53c)
 - [Regex tutorial — A quick cheatsheet by examples](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
+- [zone.ni.com - Regular Expressions Compontents](https://zone.ni.com/reference/en-XX/help/371714F-01/nirghelp/regular_expressions_components/)
