@@ -1,6 +1,7 @@
 # CS Regex Reference Guide for JavaScript
 
-If you're a customer science engineer, in any language, learning how to use and understand Regex expressions is a must.
+Check out this Gist if you're intersted in learning more about Regex, aka Regular Expressions. 
+> It's not a complete guide, but I did cover the basics to help you get started. I've also included my references and contact information at the bottom if you want to learn more.
 
 ## Summary
 
@@ -33,23 +34,25 @@ The content on this Gist was created on **[this GitHub Repo](https://github.com/
   - [Summary](#summary)
   - [Repo Stats](#repo-stats)
   - [Table of Contents](#table-of-contents)
-  - [Regex - Regular Expressions](#regex---regular-expressions)
+  - [1. What is Regex?](#1-what-is-regex)
     - [What are some other ways to explain Regular Expressions?](#what-are-some-other-ways-to-explain-regular-expressions)
     - [Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand](#undersatnding-regex---regular-expressions-are-not-easy-to-understand)
-      - [Example - Phone Number](#example---phone-number)
-      - [Example - Email Address](#example---email-address)
-    - [1. Regex Components](#1-regex-components)
-      - [1.1 Literal Characters](#11-literal-characters)
-      - [1.2 Meta Characters](#12-meta-characters)
-    - [2. Anchors / Positions](#2-anchors--positions)
-    - [3. Quantifiers -  Greedy and Lazy Match](#3-quantifiers----greedy-and-lazy-match)
-    - [4. OR Operator](#4-or-operator)
-      - [4.1 Character Classes / Bracket Expressions](#41-character-classes--bracket-expressions)
-      - [4.2 Alteration Classes / Grouping and Capturing](#42-alteration-classes--grouping-and-capturing)
-    - [5. Boundaries](#5-boundaries)
-    - [6. Flags](#6-flags)
-    - [8. Back-references](#8-back-references)
-    - [9. Look-ahead and Look-behind](#9-look-ahead-and-look-behind)
+  - [2. Starting with Examples](#2-starting-with-examples)
+    - [**Example - Phone Number**](#example---phone-number)
+    - [**Example - Email Address**](#example---email-address)
+  - [The Snytax](#the-snytax)
+    - [**1. Regex Components**](#1-regex-components)
+      - [**1.1 Literal Characters**](#11-literal-characters)
+      - [**1.2 Meta Characters**](#12-meta-characters)
+    - [**2. Anchors / Positions**](#2-anchors--positions)
+    - [**3. Quantifiers -  Greedy and Lazy Match**](#3-quantifiers----greedy-and-lazy-match)
+    - [**4. OR Operators**](#4-or-operators)
+      - [**4.1 Character Classes / Bracket Expressions**](#41-character-classes--bracket-expressions)
+      - [**4.2 Alteration Classes / Grouping and Capturing**](#42-alteration-classes--grouping-and-capturing)
+    - [**5. Boundaries**](#5-boundaries)
+    - [**6. Flags**](#6-flags)
+    - [**7. Back-references**](#7-back-references)
+    - [**8. Look-ahead and Look-behind**](#8-look-ahead-and-look-behind)
   - [Author](#author)
   - [Contact Me](#contact-me)
   - [Resources and References](#resources-and-references)
@@ -58,10 +61,10 @@ The content on this Gist was created on **[this GitHub Repo](https://github.com/
 
 ---
 
-## Regex - Regular Expressions
+## 1. What is Regex?
 
-**A regular expression, *aka regex*, is used to simplify advanced searching/filtering
-of content based on a user-specified search patern.**
+... aka **regular expression**, is a universal syntax language used to simplify
+advanced searching/filtering of content based on a user-specified search paterns.
 > You define what you are searching at the level of precision you need.
 
 **What makes a regex search/filter different from others is that it searches for
@@ -94,7 +97,9 @@ The [MDN team said,](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Gui
 To understand a regex pattern, *the search / filter you're creating*, you'll need
 to learn some syntax. But first, let's start with some examples.
 
-#### Example - Phone Number
+## 2. Starting with Examples
+
+### **Example - Phone Number**
 
 Without the area-code, phone numbers are generally 9-digits separated by a space
 or a hyphen.
@@ -154,11 +159,13 @@ Let's break it down 👇🏼
 | **`\d{4}`** | A collection of 4 digits |
 | **`/`** | Ending the regex expression |
 
-#### Example - Email Address
+---
 
-Now that we've covered the basics, let's look at the regex search pattern for
-all email addresses, again.
-> *The goal here is to understand the concept of what's possible!*
+### **Example - Email Address**
+
+Now that we've covered the basics, let's look at a regex search pattern built to
+search for email addresses.
+> You'll notice I've covered less details here.
 
 **Do you see a pattern in this regex search pattern?**
 
@@ -181,9 +188,13 @@ Let's break it apart into smaller chunks based on the high-level patterns we see
 
 ---
 
-### 1. Regex Components
+## The Snytax
 
-#### 1.1 Literal Characters
+---
+
+### **1. Regex Components**
+
+#### **1.1 Literal Characters**
 
 Any/all ASCII or unicode characters you're wanting to search for or filter out. 
 This will include sincle characters
@@ -196,7 +207,7 @@ This will include sincle characters
 | **`\.`**  | A period character |
 | **`Unicode Characters`**  | There's a lot. here's an index -> *[Microsoft - Insert ASCII or Unicode Latin-based symbols and characters](https://support.microsoft.com/en-gb/office/insert-ascii-or-unicode-latin-based-symbols-and-characters-d13f58d3-7bcb-44a7-a4d5-972ee12e50e0)* |
 
-#### 1.2 Meta Characters
+#### **1.2 Meta Characters**
 
 Regex operator that represent specific data-types within the ASCI or Unicode
 character sets.
@@ -217,7 +228,7 @@ character sets.
 
 ---
 
-### 2. Anchors / Positions
+### **2. Anchors / Positions**
 
 ... are used to match the location of a litercal character within your defined
 searach-paramters.
@@ -231,7 +242,7 @@ searach-paramters.
 
 ---
 
-### 3. Quantifiers -  Greedy and Lazy Match
+### **3. Quantifiers -  Greedy and Lazy Match**
 
 ... are a meta character that modify the pervious meta characters in a regular
 expesion.
@@ -250,11 +261,11 @@ expesion.
 
 ---
 
-### 4. OR Operator
+### **4. OR Operators**
 
 How to use OR Arugments witin a regex statement.
 
-#### 4.1 Character Classes / Bracket Expressions
+#### **4.1 Character Classes / Bracket Expressions**
 
 ... is one of the two **OR operators**, where arguments are placed inside of square-brackets **`[ ]`**.
 
@@ -268,7 +279,7 @@ How to use OR Arugments witin a regex statement.
 
 ---
 
-#### 4.2 Alteration Classes / Grouping and Capturing
+#### **4.2 Alteration Classes / Grouping and Capturing**
 
 ... is the second **OR Operator**, and is used with as an or operator to look
 for grouped literal characters within parentheisis and separated by a vertical
@@ -282,7 +293,7 @@ bar `( arg1 | arg2 )`.
 
 ---
 
-### 5. Boundaries
+### **5. Boundaries**
 
 | Syntax  | Description  |   Example   |
 |---------|--------------|-------------|
@@ -292,7 +303,7 @@ bar `( arg1 | arg2 )`.
 
 ---
 
-### 6. Flags
+### **6. Flags**
 
 ... are used to classify speciic search-case scenarios to you regex expression.
 They can be combined or used individually as needed, and are added to the end
@@ -311,7 +322,7 @@ of your regex expression. `/regex-pattern/flag`
 
 ---
 
-### 8. Back-references
+### **7. Back-references**
 
 ... are used to sycronize pattern-group result paramters within a regex expression
 based on the pattern group you specify.
@@ -324,7 +335,7 @@ based on the pattern group you specify.
 
 ---
 
-### 9. Look-ahead and Look-behind
+### **8. Look-ahead and Look-behind**
 
 | Syntax  | Description  |
 |---------|--------------|
@@ -343,6 +354,9 @@ based on the pattern group you specify.
 ## Author
 
 **[Erik Plachta](https://github.com/ErikPlachta)**
+
+**Thanks for taking the time to read this!**
+> If you want to check out more of my work, head on over to my [GitHub Page](https://www.github.com/eriklplachta).
 
 ## Contact Me
 
