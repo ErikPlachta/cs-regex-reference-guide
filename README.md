@@ -12,7 +12,8 @@ real-life scenarios where the associted regex expression would be useful.
 
 ## Useage
 
-To use this reference guide, you can either **[navigate to my website](https://erikplachta.github.io/cs-regex-reference-guide/)**, or scroll down for for the markdown version.
+- To check out the Gist I've created, **[[Check out this link]]**.
+- To use this reference guide, you can either **[navigate to my website](https://erikplachta.github.io/cs-regex-reference-guide/)**, or scroll down for for the markdown version.
 
 ---
 
@@ -46,7 +47,7 @@ To use this reference guide, you can either **[navigate to my website](https://e
     - [2. Meta Characters](#2-meta-characters)
     - [3. Quantifiers](#3-quantifiers)
     - [4. Positions](#4-positions)
-    - [5. Character Class](#5-character-class)
+    - [5. Character Classes](#5-character-classes)
     - [6. Alteration Classes](#6-alteration-classes)
     - [Regex Components](#regex-components)
     - [Anchors](#anchors)
@@ -249,7 +250,7 @@ searach-paramters.
 
 ---
 
-### 5. Character Class
+### 5. Character Classes
 
 ... is one of the two **OR operators**, where arguments are placed inside of square-brackets **`[ ]`**.
 
