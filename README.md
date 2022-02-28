@@ -48,15 +48,13 @@ real-life scenarios where the associted regex expression would be useful.
     - [2. Anchors](#2-anchors)
     - [3. Quantifiers](#3-quantifiers)
     - [4. OR Operator](#4-or-operator)
-      - [4.1 Character Classes](#41-character-classes)
-      - [4.2 Alteration Classes](#42-alteration-classes)
+      - [4.1 Character Classes / Bracket Expressions](#41-character-classes--bracket-expressions)
+      - [4.2 Alteration Classes / Grouping and Capturing](#42-alteration-classes--grouping-and-capturing)
       - [4. Positions](#4-positions)
     - [Boundaries](#boundaries)
     - [Flags](#flags)
     - [Grouping and Capturing](#grouping-and-capturing)
-    - [Bracket Expressions](#bracket-expressions)
     - [Greedy and Lazy Match](#greedy-and-lazy-match)
-    - [Boundaries](#boundaries-1)
     - [Back-references](#back-references)
     - [Look-ahead and Look-behind](#look-ahead-and-look-behind)
   - [Author](#author)
@@ -262,7 +260,7 @@ expesion.
 
 How to use OR Arugments witin a regex statement.
 
-#### 4.1 Character Classes
+#### 4.1 Character Classes / Bracket Expressions
 
 ... is one of the two **OR operators**, where arguments are placed inside of square-brackets **`[ ]`**.
 
@@ -276,7 +274,7 @@ How to use OR Arugments witin a regex statement.
 
 ---
 
-#### 4.2 Alteration Classes
+#### 4.2 Alteration Classes / Grouping and Capturing
 
 ... is the second **OR Operator**, and is used with as an or operator to look
 for grouped literal characters within parentheisis and separated by a vertical
@@ -323,23 +321,13 @@ of your regex expression. `/regex-pattern/flag`
 
 ### Grouping and Capturing
 
-
-### Bracket Expressions
-
-
 ### Greedy and Lazy Match
-
-
-### Boundaries
-
 
 ### Back-references
 
-
 ### Look-ahead and Look-behind
 
-
-
+---
 
 <!--
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/erikplachta/cs-regex-reference-guide)
