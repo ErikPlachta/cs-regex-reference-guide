@@ -41,14 +41,13 @@ To use this reference guide, you can either **[navigate to my website](https://e
   - [Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand](#undersatnding-regex---regular-expressions-are-not-easy-to-understand)
     - [Example - Phone Number](#example---phone-number)
     - [Example - Email Address](#example---email-address)
-- [Syntax x Description x Notes](#syntax-x-description-x-notes)
-  - [1. Literal Characters](#1-literal-characters)
-  - [2. Meta Characters](#2-meta-characters)
-  - [3. Quantifiers](#3-quantifiers)
-  - [4. Positions](#4-positions)
-  - [5. Character Class](#5-character-class)
-  - [| **`[.]`**     |  All literal character instances of a period, `.` | Within a class, does **not** need to be escaped to be read as a literl character. |](#--------all-literal-character-instances-of-a-period---within-a-class-does-not-need-to-be-escaped-to-be-read-as-a-literl-character-)
-  - [6. Alteration Classes](#6-alteration-classes)
+  - [Syntax x Description x Notes](#syntax-x-description-x-notes)
+    - [1. Literal Characters](#1-literal-characters)
+    - [2. Meta Characters](#2-meta-characters)
+    - [3. Quantifiers](#3-quantifiers)
+    - [4. Positions](#4-positions)
+    - [5. Character Class](#5-character-class)
+    - [6. Alteration Classes](#6-alteration-classes)
     - [Regex Components](#regex-components)
     - [Anchors](#anchors)
     - [Quantifiers](#quantifiers)
@@ -169,7 +168,7 @@ all email addresses, again.
 
 `([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})`
 
-> Let's break it apart into smaller chunks based on the high-level patterns we see.
+Let's break it apart into smaller chunks based on the high-level patterns we see!
 
 | Symbol | Description |
 |--------|-------------|
@@ -182,11 +181,11 @@ all email addresses, again.
 
 ---
 
-# Syntax x Description x Notes
+## Syntax x Description x Notes
 
 The snytax of regegular expressions broken down into their respective categories.
 
-## 1. Literal Characters
+### 1. Literal Characters
 
 Any/all ASCII or unicode characters you're wanting to search for or filter out. 
 This will include sincle characters
@@ -196,11 +195,12 @@ This will include sincle characters
 | **`a-z`** | Any lower-case letters  |
 | **`A-Z`** | Any upper-case letters  |
 | **`0-9`** | Any digits |
+| **`\.`**  | A period character |
 | **`Unicode Characters`**  | There's a lot. here's an index -> *[Microsoft - Insert ASCII or Unicode Latin-based symbols and characters](https://support.microsoft.com/en-gb/office/insert-ascii-or-unicode-latin-based-symbols-and-characters-d13f58d3-7bcb-44a7-a4d5-972ee12e50e0)* |
 
 ---
 
-## 2. Meta Characters
+### 2. Meta Characters
 
 Regex operator that represent specific data-types within the ASCI or Unicode
 character sets.
@@ -219,7 +219,7 @@ character sets.
 
 ---
 
-## 3. Quantifiers
+### 3. Quantifiers
 
 ... are a meta character that modify the pervious meta characters in a regular
 expesion.
@@ -236,7 +236,7 @@ expesion.
 
 ---
 
-## 4. Positions
+### 4. Positions
 
 ... are used to match the location of a litercal character within your defined 
 searach-paramters.
@@ -249,20 +249,30 @@ searach-paramters.
 
 ---
 
-## 5. Character Class
+### 5. Character Class
 
-... is the OR operator, based on parameters inside of square-brackets **`[ ]`**.
+... is one of the two **OR operators**, where arguments are placed inside of square-brackets **`[ ]`**.
 
-| Use Case Examples and Special Cirumstances |       Description |  Notes | Example |
-|---------------|------------------------------------------------|--------|---------|
-| **`l[yi]nk`** | All cases of `link` AND/OR `lynk`. |  |
-| **`[a-z]`**   | Any literal characters a-z. | Because the hyphen is in the middle, not the preface of the `[-.]`, it's interited as an [Meta Character](#2-meta-characters).  | `[a-c]` -> return all characters between `a` and `c`. `[0-5]{3}`|
-| **`[.]`**     |  All literal character instances of a period, `.` | Within a class, does **not** need to be escaped to be read as a literl character. |
+| Snytax | Description | Notes | Example |
+|--------|-------------|-------|---------|
+| **`[^argument]`** | **NOT OR Operator**, returns anything except for the argument in the Class | A carrot, `^`, becomes a [meta character](#2-meta-characters) when used at the preface of a class. Anywhere else and it becomes a [literal character](#1-literal-characters) | `[^0-5]` -> anything not 0-5. `[^a-c]` -> Anything that is not between the letters a-c.
+| **`[.]`** |  All literal character instances of a period, `.` | Within a class, does **not** need to be escaped to be read as a literl character. |`[-.]` -> looks for the literal characters `-` OR `.` |
+| **`a[bc]de`** | All cases of `abde` AND/OR `acde`. |   |  |
+| **`[letter-letter]`**   | Any literal characters a-z based on case sensitivy. | A hyphen, `-` becomes a [meta character](#2-meta-characters) when used between two literal characters of the same family within a class. | `[a-c]` -> return all characters between `a` and `c`. `\b[A-Za-z]{4}\b` -> to match any 4-letter word with letter [literal characters](#1-literal-characters) in it. `\b[A-Z][a-z]*\b` -> to match any 0-or more letter word with letter [literal characters](#1-literal-characters) in it starting with a capital letter. `\b[\w]{4}\b` -> All 4 letter words that contain any value used within words. |
+| **`[number-number]`** | A range between two numbers | A hyphen, `-` becomes a [meta character](#2-meta-characters) when used between two literal characters of the same family within a class. | `[0-5]{3}` -> All combonations of 3-digits where each unique digit is between 0 - 5 |
+
 ---
 
-## 6. Alteration Classes
+### 6. Alteration Classes
 
-... are used with as an or operator to look for grouped literal characters.
+... is the second **OR Operator**, and is used with as an or operator to look
+for grouped literal characters within parentheisis and separated by a vertical
+bar `( arg1 | arg2 )`.
+
+| Snytax | Description | Notes | Example |
+|--------|-------------|-------|---------|
+| **`(arg1\|arg2)`** | Return all instances where `arg1` or `arg2` exist. | This is how you search for very specific groups of literal characters. | `[\w.]+@\w+\.+(com\|net\|edu)` -> Returns all email address that end with .net, .com, or.edu |
+
 
 ---
 
