@@ -42,8 +42,8 @@ The content on this Gist was created on **[this GitHub Repo](https://github.com/
   - [Table of Contents](#table-of-contents)
   - [1. What is Regex?](#1-what-is-regex)
     - [What are some other ways to explain Regular Expressions?](#what-are-some-other-ways-to-explain-regular-expressions)
-    - [Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand](#undersatnding-regex---regular-expressions-are-not-easy-to-understand)
   - [2. Starting with Examples](#2-starting-with-examples)
+    - [Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand](#undersatnding-regex---regular-expressions-are-not-easy-to-understand)
     - [**Example - Phone Number**](#example---phone-number)
     - [**Example - Email Address**](#example---email-address)
   - [The Snytax](#the-snytax)
@@ -98,12 +98,13 @@ The [MDN team said,](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Gui
 
 ---
 
+## 2. Starting with Examples
+
 ### Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand
 
 To understand a regex pattern, *the search / filter you're creating*, you'll need
 to learn some syntax. But first, let's start with some examples.
 
-## 2. Starting with Examples
 
 ### **Example - Phone Number**
 
