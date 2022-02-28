@@ -105,7 +105,6 @@ The [MDN team said,](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Gui
 To understand a regex pattern, *the search / filter you're creating*, you'll need
 to learn some syntax. But first, let's start with some examples.
 
-
 ### **Example - Phone Number**
 
 Without the area-code, phone numbers are generally 9-digits separated by a space
@@ -197,12 +196,19 @@ Let's break it apart into smaller chunks based on the high-level patterns we see
 
 ## The Snytax
 
+In this section, I've included the snytax used in the above examples. The goal
+is to have it server as a point-of-reference for the above along with helping you
+develop the confidence and knowledge to create your own regex patterns.
+> Not all sections contain examples by design.
+
+
 ---
 
-*Note: If you're looking for a resource to make it easy to lean regex while following
-along with this guide, check out this  website https://regexr.com/.*
-> It allows you to create regex search patterns and get live-feedback.
+> *Note: If you're looking for a resource to make it easy to lean regex while
+> followingalong with this guide, check out this  website https://regexr.com/.*
+>> *It allows you to create regex search patterns and get live-feedback.*
 
+---
 
 ### **1. Regex Components**
 
@@ -226,7 +232,7 @@ character sets.
 
 | Syntax | Description  | Note | Example |
 |--------|--------------|------|---------|
-| **`\`** | Converts ASCI or Unicode character **into meta-characters** | *WARNING: If you don't use this it will be considered a literal-character!* | |
+| **`\`** | Converts qualifying ASCI or Unicode character into meta-characters. | *WARNING: If you don't use this it will be considered a literal-character!* | |
 | **`/^`**| Any new line | | |
 | **`.`** | Any ASCI or Unicode Character.| *WARNING: Within a [character class](#character-classes), a `.` does not need to be escaped to be read as a [literal character](#1-literal-characters)* | |
 | **`\d`**| Any Digit 0-9 | | |
