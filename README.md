@@ -4,7 +4,7 @@ Check out this Gist if you're intersted in learning more about Regex, aka
 Regular Expressions.
 > It's not a complete guide, but I did cover the basics to help you get started.
 > I've also included my references and contact information at the bottom if you
->  want to learn more.
+> want to learn more.
 
 ---
 
