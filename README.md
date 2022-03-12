@@ -374,7 +374,7 @@ based on the pattern group you specify.
 **[Erik Plachta](https://github.com/ErikPlachta)**
 
 **Thanks for taking the time to read this!**
-> If you want to check out more of my work, head on over to my [GitHub Page](https://www.github.com/eriklplachta).
+> If you want to check out more of my work, head on over to my [GitHub Page](https://www.github.com/erikplachta).
 
 ## Contact Me
 
