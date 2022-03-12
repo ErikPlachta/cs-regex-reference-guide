@@ -1,6 +1,6 @@
 # CS Regex Reference Guide for JavaScript
 
-Check out this Gist if you're intersted in learning more about Regex, aka
+Check out this Gist if you're interested in learning more about Regex, aka
 Regular Expressions.
 > It's not a complete guide, but I did cover the basics to help you get started.
 > I've also included my references and contact information at the bottom if you
@@ -43,10 +43,10 @@ The content on this Gist was created on **[this GitHub Repo](https://github.com/
   - [1. What is Regex?](#1-what-is-regex)
     - [What are some other ways to explain Regular Expressions?](#what-are-some-other-ways-to-explain-regular-expressions)
   - [2. Starting with Examples](#2-starting-with-examples)
-    - [Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand](#undersatnding-regex---regular-expressions-are-not-easy-to-understand)
+    - [Understanding Regex -> Regular Expressions Are ~~not~~ Easy to Understand](#undersatnding-regex---regular-expressions-are-not-easy-to-understand)
     - [**Example - Phone Number**](#example---phone-number)
     - [**Example - Email Address**](#example---email-address)
-  - [The Snytax](#the-snytax)
+  - [The Syntax](#the-syntax)
     - [**1. Regex Components**](#1-regex-components)
       - [**1.1 Literal Characters**](#11-literal-characters)
       - [**1.2 Meta Characters**](#12-meta-characters)
@@ -70,14 +70,14 @@ The content on this Gist was created on **[this GitHub Repo](https://github.com/
 ## 1. What is Regex?
 
 ... aka **regular expression**, is a universal syntax language used to simplify
-advanced searching/filtering of content based on a user-specified search paterns.
+advanced searching/filtering of content based on a user-specified search pattern.
 > You define what you are searching at the level of precision you need.
 
 **What makes a regex search/filter different from others is that it searches for
-patterns in ASCII or unicode characters.**
+patterns in ASCII or Unicode characters.**
 > You're not just looking for a specific character value, you're looking for all
 > instances of a pattern within the content. For example, all phone-numbers,
-> email-addresses, websites, or really any type of content that folows a
+> email-addresses, websites, or really any type of content that follows a
 > universal pattern.
 
 ---
@@ -100,7 +100,7 @@ The [MDN team said,](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Gui
 
 ## 2. Starting with Examples
 
-### Undersatnding Regex -> Regular Expressions Are ~~not~~ Easy to Understand
+### Understanding Regex -> Regular Expressions Are ~~not~~ Easy to Understand
 
 To understand a regex pattern, *the search / filter you're creating*, you'll need
 to learn some syntax. But first, let's start with some examples.
@@ -113,11 +113,11 @@ or a hyphen.
 ---
 
 **We can look for 10 digits like this `/\d\d\d-\d\d\d-\d\d\d\d/`**
-Here's, we're using the [meta character](#2-meta-characters) arguement `\d` for 
-each unique digit that we're searching for seperated by a hyphen.
+Here's, we're using the [meta character](#2-meta-characters) argument `\d` for 
+each unique digit that we're searching for separated by a hyphen.
 
 BUT what IF the single phone-number is formatted differently through-out the data?
-For Example, our regex expression ran on the below data would only retrun 1
+For Example, our regex expression ran on the below data would only return 1
 results, `123-456-7890`, even though ALL of them are the same phone number.
 > `(123)-456-7890`, `123-456-7890`, `123.456.7890`, and `123 456 7890`
 
@@ -132,11 +132,11 @@ Well, considering the same phone numbers 4 times again, we want to account for
 **1.** Add a FEW OR operators to account for spaces vs hyphens
     > To do this we'll use **`[]`**, the [character class syntax](#character-classes),
     > where each [literal character](#1-literal-characters) inside the square-
-    > brackets is considered a unqiue argument.
+    > brackets is considered a unique argument.
 
 **2.** Add the ability to match `(` and `)` if they exist.
     > For optional parameters, we'll use the **`?`** [quantifier](#quantifiers),
-    > which allows us to search for intances where a value does and does not exist.
+    > which allows us to search for instances that a value does and does not exist.
 
 **What does this fully fleshed out syntactically accurate regex argument look like?**
 
@@ -184,19 +184,19 @@ Let's break it apart into smaller chunks based on the high-level patterns we see
 | **`/`** | Starting the regex expression |
 |**`(`** | Encapsulating a sub-expression |
 |**`[a-z0-9_\.-]`** | Any alpha-numeric characters along with `_`, `.`, and `-`. Results must |
-|**`+)`** | Ending sub-exepression, and reuqiring it be followed by the next argument. |
+|**`+)`** | Ending sub-expression, and requiring it be followed by the next argument. |
 |**`@`**    | MUST include the `@` character. |
 |**`([\da-z\.-]+)`** | Any digit or alpha-number character, followed by a `.` or `-`. |
-|**`([a-z\.]{2,6})`** | Look for alpha-characters of any combonation between 2-6 characters in length |
+|**`([a-z\.]{2,6})`** | Look for alpha-characters of any combination between 2-6 characters in length |
 | **`/`** | Ending the regex expression |
 
 ---
 
 ---
 
-## The Snytax
+## The Syntax
 
-In this section, I've included the snytax used in the above examples. The goal
+In this section, I've included the syntax used in the above examples. The goal
 is to have it server as a point-of-reference for the above along with helping you
 develop the confidence and knowledge to create your own regex patterns.
 > Not all sections contain examples by design.
@@ -205,7 +205,7 @@ develop the confidence and knowledge to create your own regex patterns.
 ---
 
 > *Note: If you're looking for a resource to make it easy to lean regex while
-> followingalong with this guide, check out this  website https://regexr.com/.*
+> following along with this guide, check out this  website https://regexr.com/.*
 >> *It allows you to create regex search patterns and get live-feedback.*
 
 ---
@@ -214,8 +214,8 @@ develop the confidence and knowledge to create your own regex patterns.
 
 #### **1.1 Literal Characters**
 
-Any/all ASCII or unicode characters you're wanting to search for or filter out. 
-This will include sincle characters
+Any/all ASCII or Unicode characters you're wanting to search for or filter out. 
+> This will include single characters.
 
 | Syntax | Description                |
 |--------|----------------------------|
@@ -248,8 +248,8 @@ character sets.
 
 ### **2. Anchors / Positions**
 
-... are used to match the location of a litercal character within your defined
-searach-paramters.
+... are used to match the location of a literal character within your defined
+search parameters.
 
 | Syntax  | Description  |   Example   |
 |---------|--------------|-------------|
@@ -262,18 +262,17 @@ searach-paramters.
 
 ### **3. Quantifiers -  Greedy and Lazy Match**
 
-... are a meta character that modify the pervious meta characters in a regular
-expesion.
-> Based on your regex search paramters, how many of times do you want it to
+... are a meta character that modify the pervious meta characters in a regular expression.
+> Based on your regex search parameters, how many of times do you want it to
 > match in a row?
 
 | Syntax | Description  |   Example   |
 |--------|--------------|-------------|
 | **`*`**|  0 or more   | **`/\d*/`** -> returns all digits, period. |
-| **`?`**|  0 or 1      | **`/test?t/`** -> all combonations of `test` and `testt` where the second T is optional. |
+| **`?`**|  0 or 1      | **`/test?t/`** -> all combinations of `test` and `testt` where the second T is optional. |
 | **`+`**|  1 or more   | **`/\d+/`** -> returns all digits, of length 1 or more. | |
-| **`{min,max}`**| Range of number of times former-arguement must exist to qualify as a result. | **`\w{1,5}`** -> All word-character combonations with 1-5 characters followed by white-space.|
-| **`{n}`**| Number of times the former-arguement must exist to qualify as a result. | **`\w{5}\s`** -> All word-character combonations with 5 character followed by white-space.   |
+| **`{min,max}`**| Range of number of times former argument must exist to qualify as a result. | **`\w{1,5}`** -> All word-character combinations with 1-5 characters followed by white-space.|
+| **`{n}`**| Number of times the former argument must exist to qualify as a result. | **`\w{5}\s`** -> All word-character combinations with 5 character followed by white-space.   |
 
 ---
 
@@ -281,29 +280,29 @@ expesion.
 
 ### **4. OR Operators**
 
-How to use OR Arugments witin a regex statement.
+How to use OR arguments within a regex statement.
 
 #### **4.1 Character Classes / Bracket Expressions**
 
 ... is one of the two **OR operators**, where arguments are placed inside of square-brackets **`[ ]`**.
 
-| Snytax | Description | Notes | Example |
+| Syntax | Description | Notes | Example |
 |--------|-------------|-------|---------|
 | **`[^argument]`** | **NOT OR Operator**, returns anything except for the argument in the Class | A carrot, `^`, becomes a [meta character](#2-meta-characters) when used at the preface of a class. Anywhere else and it becomes a [literal character](#1-literal-characters) | `[^0-5]` -> anything not 0-5. `[^a-c]` -> Anything that is not between the letters a-c.
-| **`[.]`** |  All literal character instances of a period, `.` | Within a class, does **not** need to be escaped to be read as a literl character. |`[-.]` -> looks for the literal characters `-` OR `.` |
+| **`[.]`** |  All literal character instances of a period, `.` | Within a class, does **not** need to be escaped to be read as a literal character. |`[-.]` -> looks for the literal characters `-` OR `.` |
 | **`a[bc]de`** | All cases of `abde` AND/OR `acde`. |   |  |
-| **`[letter-letter]`**   | Any literal characters a-z based on case sensitivy. | A hyphen, `-` becomes a [meta character](#2-meta-characters) when used between two literal characters of the same family within a class. | `[a-c]` -> return all characters between `a` and `c`. `/\b[A-Za-z]{4}\b/` -> to match any 4-letter word with letter [literal characters](#1-literal-characters) in it. `/\b[A-Z][a-z]*\b/` -> to match any 0-or more letter word with letter [literal characters](#1-literal-characters) in it starting with a capital letter. `\b[\w]{4}\b` -> All 4 letter words that contain any value used within words. |
-| **`[number-number]`** | A range between two numbers | A hyphen, `-` becomes a [meta character](#2-meta-characters) when used between two literal characters of the same family within a class. | `[0-5]{3}` -> All combonations of 3-digits where each unique digit is between 0 - 5 |
+| **`[letter-letter]`**   | Any literal characters a-z based on character case. | A hyphen, `-` becomes a [meta character](#2-meta-characters) when used between two literal characters of the same family within a class. | `[a-c]` -> return all characters between `a` and `c`. `/\b[A-Za-z]{4}\b/` -> to match any 4-letter word with letter [literal characters](#1-literal-characters) in it. `/\b[A-Z][a-z]*\b/` -> to match any 0-or more letter word with letter [literal characters](#1-literal-characters) in it starting with a capital letter. `\b[\w]{4}\b` -> All 4 letter words that contain any value used within words. |
+| **`[number-number]`** | A range between two numbers | A hyphen, `-` becomes a [meta character](#2-meta-characters) when used between two literal characters of the same family within a class. | `[0-5]{3}` -> All combinations of 3-digits where each unique digit is between 0 - 5 |
 
 ---
 
 #### **4.2 Alteration Classes / Grouping and Capturing**
 
 ... is the second **OR Operator**, and is used with as an or operator to look
-for grouped literal characters within parentheisis and separated by a vertical
+for grouped literal characters within parenthesis and separated by a vertical
 bar `( arg1 | arg2 )`.
 
-| Snytax | Description | Notes | Example |
+| Syntax | Description | Notes | Example |
 |--------|-------------|-------|---------|
 | **`(arg1\|arg2)`** | Return all instances where `arg1` or `arg2` exist. | This is how you search for very specific groups of literal characters. | `/[\w.]+@\w+\.+(com\|net\|edu)/` -> Returns all email address that end with .net, .com, or.edu |
 
@@ -315,7 +314,7 @@ bar `( arg1 | arg2 )`.
 
 | Syntax  | Description  |   Example   |
 |---------|--------------|-------------|
-| **`\b`** |  A word boundry | **All 4 letter words** -> **`/\b\w{4}/`** -> Looking at each word, look ALL word-character values of length 4. `/\btest\b/` -> Returns a whole word waerch |
+| **`\b`** |  A word boundry | **All 4 letter words** -> **`/\b\w{4}/`** -> Looking at each word, look ALL word-character values of length 4. `/\btest\b/` -> Returns a whole word search |
 
 ---
 
@@ -323,17 +322,17 @@ bar `( arg1 | arg2 )`.
 
 ### **6. Flags**
 
-... are used to classify speciic search-case scenarios to you regex expression.
+... are used to classify specific search-case scenarios to you regex expression.
 They can be combined or used individually as needed, and are added to the end
 of your regex expression. `/regex-pattern/flag`
 
 | Syntax  | Description  |   Example   |
 |---------|--------------|-------------|
 | **`g`** | Globally searching. |`/[a-z]/g` -> returns all letters within all content. |
-| **`i`** | Case-insenstivie searching | `/[a-z]/gi` -> returns ALL literal character despite case from A-Z and a-z |
+| **`i`** | Case-insensitive searching | `/[a-z]/gi` -> returns ALL literal character despite case from A-Z and a-z |
 | **`m`** | Multi-line searching. | `/^\d/gm` -> returns ALL initial digits within all lines 
-| **`s`** | Dotall mode returns results with any [literal character](#11-literal-characters) between them. | |
-| **`u`** | Enable unicode support | |
+| **`s`** | `Dotall mode` returns results with any [literal character](#11-literal-characters) between them. | |
+| **`u`** | Enable Unicode support | |
 | **`y`** | Sticky mode allows you to search exact position within content | |
 
 ---
@@ -342,8 +341,7 @@ of your regex expression. `/regex-pattern/flag`
 
 ### **7. Back-references**
 
-... are used to sycronize pattern-group result paramters within a regex expression
-based on the pattern group you specify.
+… are used to synchronize pattern-group result parameters within a regex expression based on the pattern group you specify.
 
 | Syntax  | Description  |   Example   |
 |---------|--------------|-------------|
@@ -390,11 +388,11 @@ A collection of resources I used to learn about Regex.
 - [Wikipedia - Regular Expressions](https://en.wikipedia.org/wiki/Regular_expression)
 - [MDN - Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 - [Microsoft - Regular Expression Language - Quick Reference](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)
-- [MDN - Regular expression syntax cheatsheet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet)
+- [MDN - Regular expression syntax cheat sheet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet)
 - [Regular-Exprsesions.info](https://www.regular-expressions.info/)
 - [RexEgg.com](https://www.rexegg.com/)
-- [Youtube - The Coding Train - Introduction to Regular Expressions - Programming with Text](https://www.youtube.com/watch?v=7DG3kCDx53c)
-- [Regex tutorial — A quick cheatsheet by examples](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
-- [zone.ni.com - Regular Expressions Compontents](https://zone.ni.com/reference/en-XX/help/371714F-01/nirghelp/regular_expressions_components/)
+- [YouTube - The Coding Train - Introduction to Regular Expressions - Programming with Text](https://www.youtube.com/watch?v=7DG3kCDx53c)
+- [Regex tutorial — A quick cheat sheet by examples](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
+- [zone.ni.com - Regular Expressions Components](https://zone.ni.com/reference/en-XX/help/371714F-01/nirghelp/regular_expressions_components/)
 - [javascript.info - Backreferences in pattern](https://javascript.info/regexp-backreferences)
 - [rexegg.com - Mastering Lookahead and Lookbehind](https://www.rexegg.com/regex-lookarounds.html)
